@@ -1,0 +1,19 @@
+---
+import { site } from '../data/site';
+import { sectors } from '../data/sectors';
+---
+
+<section class="intro-block">
+  <div class="container intro-inner">
+    <h2 class="intro-title">{site.name.toUpperCase()}</h2>
+    <p class="intro-text">
+      {site.name} is an Australia-based diversified holding company with investments across
+      technology, property, health and wellness, agrifood, and workforce development.
+    </p>
+    <nav class="intro-links" aria-label="Sector quick links">
+      {sectors.map((sector) => (
+        <a href={`/sectors/${sector.slug}`}>{sector.name}</a>
+      ))}
+    </nav>
+  </div>
+</section>

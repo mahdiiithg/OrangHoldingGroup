@@ -1,0 +1,40 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { insights } from '../../data/insights';
+---
+
+<PageLayout
+  title="News & Insights"
+  description="Corporate updates, market views, and sector intelligence from Orang Holding Group."
+>
+  <PageHero
+    eyebrow="News & Insights"
+    title="Corporate Updates and Sector Intelligence"
+    description="Thought leadership, portfolio updates, and market perspectives from across the group."
+  />
+
+  <section class="page-content">
+    <div class="container insights-list">
+      {insights.map((item) => (
+        <article class="card insight-row">
+          <div>
+            <p class="meta">{item.category}</p>
+            <time datetime={item.publishDate}>
+              {new Date(item.publishDate).toLocaleDateString('en-AU', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </time>
+          </div>
+          <div>
+            <h3><a href={`/insights/${item.slug}`}>{item.title}</a></h3>
+            <p>{item.excerpt}</p>
+            <a href={`/insights/${item.slug}`}>Read article</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</PageLayout>

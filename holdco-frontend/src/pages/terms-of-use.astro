@@ -1,0 +1,46 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../data/site';
+---
+
+<PageLayout title="Terms of Use" description={`Terms of Use for ${site.name} website.`}>
+  <PageHero title="Terms of Use" compact={true} />
+
+  <section class="page-content">
+    <div class="container prose">
+      <p><em>Last updated: June 2026</em></p>
+
+      <h2>Acceptance</h2>
+      <p>
+        By accessing and using this website, you agree to these Terms of Use. If you do
+        not agree, please discontinue use of the site.
+      </p>
+
+      <h2>Use of Content</h2>
+      <p>
+        All content on this website is provided for informational purposes. Materials may
+        not be reproduced, distributed, or modified without prior written consent from
+        {site.name}.
+      </p>
+
+      <h2>Disclaimer</h2>
+      <p>
+        Information on this website is provided in good faith but does not constitute
+        investment advice, an offer, or a solicitation. We make no warranties regarding
+        accuracy or completeness of content.
+      </p>
+
+      <h2>Limitation of Liability</h2>
+      <p>
+        To the fullest extent permitted by law, {site.name} shall not be liable for any
+        damages arising from use of this website or reliance on its content.
+      </p>
+
+      <h2>Governing Law</h2>
+      <p>
+        These terms are governed by the laws of New South Wales, Australia.
+      </p>
+    </div>
+  </section>
+</PageLayout>

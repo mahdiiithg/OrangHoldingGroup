@@ -1,0 +1,49 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { leadership } from '../data/leadership';
+---
+
+<PageLayout
+  title="Leadership & Governance"
+  description="Governance philosophy, leadership profiles, and accountability frameworks at Orang Holding Group."
+>
+  <PageHero
+    eyebrow="Leadership & Governance"
+    title="Governance and Accountability at Group Level"
+    description="Our governance model balances sector operating autonomy with parent-level oversight on capital, risk, and stakeholder standards."
+  />
+
+  <section class="page-content">
+    <div class="container">
+      <div class="prose" style="margin-bottom: 2rem;">
+        <h2>Governance Philosophy</h2>
+        <p>
+          Orang Holding Group maintains board-level oversight of strategy, capital allocation,
+          and risk while empowering sector platforms to execute with sector expertise. We apply
+          consistent standards for financial reporting, compliance, and stakeholder communication.
+        </p>
+      </div>
+
+      <h2>Leadership</h2>
+      <div class="leadership-grid">
+        {leadership.map((leader) => (
+          <article class="card leadership-card">
+            <h3>{leader.name}</h3>
+            <p class="role">{leader.role}</p>
+            <p>{leader.bio}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="prose" style="margin-top: 2rem;">
+        <h2>Compliance &amp; Policy</h2>
+        <p>
+          The group maintains policies covering privacy, terms of use, cookies, and corporate
+          information disclosure. See our <a href="/corporate-information">Corporate Information</a> page
+          for legal entity details and policy links.
+        </p>
+      </div>
+    </div>
+  </section>
+</PageLayout>

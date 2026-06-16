@@ -1,0 +1,80 @@
+---
+import { site, footerNav, legalNav } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="container footer-columns">
+    <div class="footer-col">
+      <h3>About Us</h3>
+      <a href="/about">About Us</a>
+      <a href="/leadership-governance">Leadership &amp; Governance</a>
+      <a href="/markets">Markets</a>
+      <a href="/corporate-events">Corporate Events</a>
+    </div>
+    <div class="footer-col">
+      <h3>Our Sectors</h3>
+      {footerNav.filter((l) => l.href.startsWith('/sectors') || l.label === 'Our Sectors').map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+      <a href="/sectors">View All Sectors</a>
+    </div>
+    <div class="footer-col">
+      <h3>Investor Relations</h3>
+      <a href="/investor-relations">Investor Relations</a>
+      <a href="/financials">Financials</a>
+      <a href="/sustainability">Sustainability</a>
+    </div>
+    <div class="footer-col">
+      <h3>News &amp; Contact</h3>
+      <a href="/insights">News &amp; Insights</a>
+      <a href="/contact">Contact</a>
+      {legalNav.slice(0, 2).map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </div>
+  </div>
+
+  <div class="container footer-contact-block">
+    <h2 class="footer-contact-title">CONTACT US</h2>
+    <div class="footer-contact-grid">
+      <div>
+        <p><strong>General:</strong> {site.phone}</p>
+        <p><strong>Investor and Media Relations:</strong> {site.phone}</p>
+        <p><strong>Corporate Development:</strong> {site.phone}</p>
+        <p><strong>Company Secretary:</strong> {site.phone}</p>
+      </div>
+      <div>
+        <p><strong>Address</strong></p>
+        <p>{site.address}</p>
+        <p><a href={`mailto:${site.email}`}>Email Alert Sign Up / Unsubscribe</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom-bar">
+    <div class="container footer-legal">
+      <nav aria-label="Legal navigation">
+        {legalNav.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
+        <a href="/contact">Contact Us</a>
+      </nav>
+      <p class="copyright">
+        Copyright &copy; {site.year} | {site.name} | All rights reserved
+      </p>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite">
+  <p>
+    By navigating this website, you agree to allow our collection of information and use of
+    cookies. More information can be found in our Terms of Use and Privacy Policy.
+  </p>
+  <div>
+    <button class="btn btn-ghost" id="cookies-essential" type="button">Essential Only</button>
+    <button class="btn btn-primary" id="cookies-accept" type="button">Accept All</button>
+  </div>
+</div>
+
+<script is:inline src="/site.js"></script>

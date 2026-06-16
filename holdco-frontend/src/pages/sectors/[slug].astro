@@ -1,0 +1,51 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { sectors, getSector } from '../../data/sectors';
+
+export function getStaticPaths() {
+  return sectors.map((sector) => ({ params: { slug: sector.slug } }));
+}
+
+const { slug } = Astro.params;
+const sector = getSector(slug!);
+
+if (!sector) {
+  return Astro.redirect('/sectors');
+}
+---
+
+<PageLayout title={sector.name} description={sector.summary}>
+  <PageHero eyebrow="Our Sectors" title={sector.name} description={sector.positioningLine} />
+
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / <a href="/sectors">Our Sectors</a> / {sector.name}
+      </nav>
+
+      <div class="two-col">
+        <div class="prose">
+          <h2>Overview</h2>
+          <p>{sector.overview}</p>
+
+          <h2>What We Do</h2>
+          <ul>
+            {sector.coreAreas.map((area) => (
+              <li>{area}</li>
+            ))}
+          </ul>
+
+          <h2>Why It Matters</h2>
+          <p>{sector.whyItMatters}</p>
+        </div>
+
+        <aside class="card">
+          <h3>Enquire</h3>
+          <p>Contact our team for sector-specific partnerships, services, or strategic discussions.</p>
+          <a class="btn btn-primary" href={`/contact?sector=${sector.slug}`}>{sector.ctaLabel}</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+</PageLayout>

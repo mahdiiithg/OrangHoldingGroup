@@ -1,0 +1,31 @@
+---
+import type { Insight } from '../data/insights';
+
+interface Props {
+  items: Insight[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="section section-news">
+  <div class="container">
+    <h2 class="section-heading section-heading-news">NEWS FROM THE VIEW MAGAZINE</h2>
+
+    <div class="magazine-grid">
+      {items.slice(0, 2).map((item) => (
+        <article class="magazine-card">
+          <a href={`/insights/${item.slug}`} class="magazine-thumb">
+            <img src={item.imageUrl} alt="" loading="lazy" width="480" height="280" />
+          </a>
+          <h3><a href={`/insights/${item.slug}`}>{item.title}</a></h3>
+          <p>{item.excerpt}</p>
+        </article>
+      ))}
+    </div>
+
+    <p class="magazine-cta">
+      <a href="/insights" class="magazine-btn">READ THE LATEST VIEW MAGAZINE</a>
+    </p>
+  </div>
+</section>

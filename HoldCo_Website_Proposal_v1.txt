@@ -1,0 +1,338 @@
+HOLDING COMPANY WEBSITE PROPOSAL
+Scalable Corporate Platform (SEO + Marketing Optimized)
+Date: 2026-06-13
+
+Prepared for: Multi-sector Holding Company (Australia base, multi-country growth)
+Baseline strategy reference: First Pacific structural discipline (not design copying)
+
+====================================================================
+1) EXECUTIVE PROPOSAL
+====================================================================
+
+Recommended approach:
+- Build a high-performance, corporate-grade website using a headless architecture.
+- Use Astro for the presentation layer and Sanity as the content platform.
+- Deploy via edge CDN for speed, reliability, and SEO performance.
+
+Why this approach:
+- Faster load speed and better Core Web Vitals than heavy traditional CMS installs.
+- Strong content governance and easy edits for non-technical staff.
+- Structured content model for sectors, markets, leadership, and insights.
+- Scales cleanly for future subsidiaries, countries, and multilingual rollout.
+
+Primary strategic outcome:
+A listed-style digital foundation that supports credibility, partnerships, business development,
+and investor-grade communication across divisions.
+
+====================================================================
+2) WHAT THE CLIENT WILL RECEIVE
+====================================================================
+
+A. Strategy and UX
+- Information architecture (parent-led and sector-led).
+- Wireframes for all phase-1 pages.
+- Content map and section-level page blueprints.
+
+B. UI and Design System
+- Corporate visual direction (color, typography, spacing, component logic).
+- Reusable component library (hero, cards, governance blocks, insights lists, CTA modules).
+- Responsive behavior rules for desktop, tablet, and mobile.
+
+C. Website Build
+- Frontend build (Astro) with reusable page sections.
+- CMS implementation (Sanity) with content types and editor workflows.
+- Sector templates and repeatable page models for expansion.
+
+D. SEO and Performance
+- Technical SEO foundation (metadata, canonical, sitemap, robots, schema basics).
+- On-page SEO fields for each page and post.
+- Performance optimization for Core Web Vitals and image delivery.
+
+E. Lead and Contact Infrastructure
+- Contact form with sector-based routing categories:
+  General Corporate, ICT, Property, Health/Wellness/Beauty,
+  AgriFood/Nutrition, Training & Development, Partnerships/Investment, Media/Other.
+- Anti-spam protection and consent handling.
+- Email routing rules and submission logging.
+
+F. Compliance and Measurement
+- Cookie consent banner and policy links.
+- Privacy, Terms, Cookies, Corporate Information page setup.
+- Analytics integration (GA4 and event tracking for key CTA actions).
+
+G. Handover
+- Admin guide for content editing.
+- Publishing workflow guide for news/insights.
+- Technical documentation and deployment notes.
+- Post-launch support window (defined in contract).
+
+====================================================================
+3) PROPOSED STACK (NON-WORDPRESS)
+====================================================================
+
+Core stack:
+- Frontend: Astro
+- CMS: Sanity
+- Hosting/CDN: Cloudflare Pages or Vercel
+- Forms: Serverless/API endpoint + routing rules + anti-spam
+- Analytics: GA4 + event schema
+
+Why Astro over heavier alternatives:
+- Ships less client-side JavaScript by default.
+- Excellent static delivery for corporate content pages.
+- Strong SEO control and predictable performance.
+
+When to consider Next.js instead:
+- If phase 2 requires heavy personalization, authenticated portals,
+  or complex app-like behavior.
+
+====================================================================
+4) WEBSITE STRUCTURE (SITEMAP)
+====================================================================
+
+Main navigation:
+- Home
+- About Us
+- Our Sectors
+- Leadership & Governance
+- Markets
+- News / Insights
+- Contact
+
+Sectors (under Our Sectors):
+- ICT Solutions
+- Property Management
+- Health, Wellness & Beauty
+- AgriFood & Nutrition
+- Training & Development
+- Emerging Ventures (optional in phase 1, ready in model)
+
+Footer links:
+- About Us
+- Our Sectors
+- Leadership & Governance
+- Markets
+- News / Insights
+- Contact
+- Privacy Policy
+- Terms of Use
+- Cookies Policy
+- Corporate Information
+
+====================================================================
+5) USER FLOW (HUMAN-READABLE)
+====================================================================
+
+A) Corporate discovery flow
+1. Visitor lands on Home.
+2. Understands parent company positioning and portfolio logic.
+3. Chooses sector or corporate page.
+4. Moves to relevant sector detail page.
+5. Submits routed enquiry.
+
+B) Partner / investor flow
+1. Visitor reads About + Leadership & Governance.
+2. Reviews Markets and portfolio logic.
+3. Submits Partnerships/Investment contact route.
+4. Internal team receives qualified enquiry by route.
+
+C) Media / credibility flow
+1. Visitor enters via News/Insights or search engine.
+2. Reads thought leadership and sector relevance.
+3. Navigates to sector page and Contact.
+
+====================================================================
+6) STRUCTURAL SCHEMA (CONTENT MODEL)
+====================================================================
+
+Entity: SiteSettings
+- companyName
+- tagline
+- primaryContactEmail
+- phone
+- officeAddress
+- socialLinks[]
+- legalLinks[]
+- analyticsConfig
+
+Entity: Page
+- title
+- slug
+- pageType (home/about/governance/markets/contact/legal)
+- seoTitle
+- seoDescription
+- ogImage
+- sections[] (modular blocks)
+
+Entity: Sector
+- name
+- slug
+- summary
+- positioningLine
+- overview
+- coreAreas[]
+- whyItMatters
+- ctaLabel
+- ctaRoute
+- seoFields
+
+Entity: LeadershipProfile
+- fullName
+- role
+- biography
+- photo
+- displayOrder
+- governanceTags[]
+
+Entity: Market
+- regionName
+- status (active/strategic)
+- summary
+- displayOrder
+
+Entity: InsightPost
+- title
+- slug
+- category
+- excerpt
+- body
+- publishDate
+- author
+- featuredImage
+- seoFields
+
+Entity: ContactRoutingRule
+- enquiryType
+- destinationEmail
+- backupEmail
+- autoResponseTemplate
+
+====================================================================
+7) URL STRATEGY (SEO-CLEAN)
+====================================================================
+
+- /
+- /about
+- /sectors
+- /sectors/ict-solutions
+- /sectors/property-management
+- /sectors/health-wellness-beauty
+- /sectors/agrifood-nutrition
+- /sectors/training-development
+- /sectors/emerging-ventures
+- /leadership-governance
+- /markets
+- /insights
+- /insights/{article-slug}
+- /contact
+- /privacy-policy
+- /terms-of-use
+- /cookies-policy
+- /corporate-information
+
+====================================================================
+8) PHASED DELIVERY PLAN
+====================================================================
+
+Phase 1 (launch foundation)
+- Home, About, Sectors, 5 core sector pages
+- Leadership & Governance, Markets, Contact
+- Legal pages
+- CMS setup, SEO baseline, analytics, cookie consent, form routing
+
+Phase 2 (growth)
+- News / Insights expansion
+- Emerging Ventures page
+- Country/regional landing pages
+- Downloadable company profile
+- Optional multilingual readiness
+
+====================================================================
+9) QUALITY TARGETS (ACCEPTANCE)
+====================================================================
+
+Performance:
+- Fast LCP and responsive UI on mobile + desktop.
+- Optimized images and script minimization.
+
+SEO:
+- Correct heading structure and metadata per page.
+- Sitemap and robots controls configured.
+- Open Graph and basic structured data implemented.
+
+Operations:
+- Editors can update core sections without layout breakage.
+- New sector or market can be added via CMS model without redesign.
+
+Governance:
+- Stable, restrained brand execution.
+- Corporate tone consistency across all pages.
+
+====================================================================
+10) RISKS AND CONTROLS
+====================================================================
+
+Risk: Overly promotional copy weakens credibility.
+Control: Editorial style guide and content approval workflow.
+
+Risk: Page builder sprawl and technical debt.
+Control: Component-driven sections with strict schema.
+
+Risk: Form spam and low-quality leads.
+Control: Anti-spam, validation, and route rules.
+
+Risk: Slow pages due to unoptimized media.
+Control: Automated image pipeline and performance budgets.
+
+====================================================================
+11) IMPLEMENTATION FLOW (PROJECT FLOW)
+====================================================================
+
+Step 1: Discovery
+- Confirm brand, priorities, content owners, and conversion objectives.
+
+Step 2: Information Architecture and Wireframes
+- Finalize sitemap, page modules, and decision pathways.
+
+Step 3: UI System
+- Build visual language and reusable component rules.
+
+Step 4: CMS Modeling
+- Implement content types, validation, and editor flows.
+
+Step 5: Frontend Build
+- Build pages and templates from modular sections.
+
+Step 6: SEO + Analytics + Forms
+- Apply metadata, schema, tracking events, and lead routing.
+
+Step 7: QA and Launch
+- Responsive QA, accessibility checks, technical SEO checks,
+  performance validation, deployment.
+
+Step 8: Handover and Support
+- Admin training, documentation, and stabilization.
+
+====================================================================
+12) OPTIONAL ENHANCEMENTS
+====================================================================
+
+- Interactive market footprint map.
+- Leadership video snippets.
+- Download center for profile brochures and governance docs.
+- Regional language support model.
+- CRM-native lead scoring integration.
+
+====================================================================
+13) CLIENT INPUTS REQUIRED TO START
+====================================================================
+
+- Final legal company name.
+- Approved logo and brand assets.
+- Leadership names, titles, bios, and photos.
+- Contact details and routing mailboxes.
+- Legal policy texts.
+- Any preferred imagery direction.
+- Approval on homepage and sector copy.
+
+END OF PROPOSAL

@@ -1,0 +1,15 @@
+---
+import type { Sector } from '../data/sectors';
+
+interface Props {
+  sector: Sector;
+}
+
+const { sector } = Astro.props;
+---
+
+<article class:list={['card', 'sector-card', sector.future && 'future-card']}>
+  <h3>{sector.name}</h3>
+  <p>{sector.summary}</p>
+  <a href={`/sectors/${sector.slug}`}>View sector</a>
+</article>
