@@ -1,0 +1,53 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../data/site';
+---
+
+<PageLayout title="Privacy Policy" description={`Privacy Policy for ${site.name}.`}>
+  <PageHero title="Privacy Policy" compact={true} />
+
+  <section class="page-content">
+    <div class="container prose">
+      <p><em>Last updated: June 2026</em></p>
+
+      <h2>Introduction</h2>
+      <p>
+        {site.name} ("we", "us", "our") respects your privacy and is committed to protecting
+        personal information collected through our website and business interactions.
+      </p>
+
+      <h2>Information We Collect</h2>
+      <ul>
+        <li>Contact details submitted via enquiry forms (name, email, message)</li>
+        <li>Technical data such as IP address, browser type, and usage analytics</li>
+        <li>Cookie and consent preferences</li>
+      </ul>
+
+      <h2>How We Use Information</h2>
+      <p>
+        We use collected information to respond to enquiries, improve our website,
+        comply with legal obligations, and communicate corporate updates where consent
+        has been provided.
+      </p>
+
+      <h2>Data Sharing</h2>
+      <p>
+        We do not sell personal information. Data may be shared with service providers
+        who assist in website hosting, analytics, or enquiry routing under appropriate
+        confidentiality agreements.
+      </p>
+
+      <h2>Your Rights</h2>
+      <p>
+        You may request access to, correction of, or deletion of your personal
+        information by contacting <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For privacy-related enquiries, contact <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+    </div>
+  </section>
+</PageLayout>
