@@ -4,13 +4,61 @@ interface Props {
   title: string;
   description?: string;
   compact?: boolean;
+  imageUrl?: string;
+  imageAlt?: string;
 }
 
-const { eyebrow, title, description, compact = false } = Astro.props;
+const { eyebrow, title, description, compact = false, imageUrl, imageAlt } = Astro.props;
+
+const heroContext = `${eyebrow ?? ''} ${title}`.toLowerCase();
+
+function getDefaultHeroImage(context: string) {
+  if (context.includes('contact')) {
+    return 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1800&q=80';
+  }
+  if (context.includes('investor') || context.includes('financial')) {
+    return 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1800&q=80';
+  }
+  if (context.includes('leadership') || context.includes('governance')) {
+    return 'https://images.unsplash.com/photo-1517502166878-35c93a0072f0?auto=format&fit=crop&w=1800&q=80';
+  }
+  if (context.includes('market')) {
+    return 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=80';
+  }
+  if (context.includes('sustainability')) {
+    return 'https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=1800&q=80';
+  }
+  if (context.includes('insight') || context.includes('news')) {
+    return 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1800&q=80';
+  }
+  if (context.includes('sector')) {
+    return 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80';
+  }
+  if (
+    context.includes('privacy') ||
+    context.includes('cookies') ||
+    context.includes('terms') ||
+    context.includes('corporate information')
+  ) {
+    return 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1800&q=80';
+  }
+  if (context.includes('about')) {
+    return 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80';
+  }
+  return 'https://images.unsplash.com/photo-1554224154-22dec7ec8818?auto=format&fit=crop&w=1800&q=80';
+}
+
+const resolvedImage = imageUrl ?? getDefaultHeroImage(heroContext);
+const resolvedAlt = imageAlt ?? `${title} hero image`;
 ---
 
-<section class:list={['page-hero', compact && 'page-hero-compact']}>
-  <div class="container">
+<section
+  class:list={['page-hero', compact && 'page-hero-compact']}
+  style={`--page-hero-image: url('${resolvedImage}')`}
+>
+  <div class="page-hero-bg" role="img" aria-label={resolvedAlt}></div>
+  <div class="page-hero-overlay" aria-hidden="true"></div>
+  <div class="container page-hero-inner">
     {eyebrow && <p class="eyebrow">{eyebrow}</p>}
     <h1>{title}</h1>
     {description && <p class="page-hero-desc">{description}</p>}

@@ -1,14 +1,20 @@
 ---
-import { sectors } from '../data/sectors';
+import { ownedBusinesses } from '../data/businesses';
 ---
 
 <section class="section section-investments" id="investments">
   <div class="container">
-    <h2 class="investments-label">principal investments</h2>
+    <div class="investments-head">
+      <p class="investments-kicker">Owned Portfolio</p>
+      <h2 class="investments-label">Principal Investments</h2>
+      <p class="investments-intro">
+        Our principal investments are built around owned operating businesses in core industries.
+      </p>
+    </div>
 
     <div class="investment-carousel" data-investment-carousel>
       <div class="investment-slides">
-        {sectors.map((sector, index) => (
+        {ownedBusinesses.map((business, index) => (
           <article
             class:list={['investment-slide', index === 0 && 'is-active']}
             data-investment-index={index}
@@ -16,17 +22,18 @@ import { sectors } from '../data/sectors';
             <div class="investment-slide-inner">
               <div class="investment-photo">
                 <img
-                  src={sector.imageUrl}
-                  alt=""
+                  src={business.imageUrl}
+                  alt={business.name}
                   loading={index === 0 ? 'eager' : 'lazy'}
                   width="560"
                   height="380"
                 />
               </div>
               <div class="investment-copy">
-                <h3>{sector.name.toUpperCase()}</h3>
-                <p>{sector.summary}</p>
-                <a href={`/sectors/${sector.slug}`} class="read-more">&gt; read more</a>
+                <p class="investment-industry">{business.industry}</p>
+                <h3>{business.name.toUpperCase()}</h3>
+                <p>{business.shortDescription}</p>
+                <a href={`/businesses/${business.slug}`} class="btn btn-primary investment-cta">Read Business Overview</a>
               </div>
             </div>
           </article>
@@ -34,7 +41,20 @@ import { sectors } from '../data/sectors';
       </div>
 
       <div class="investment-carousel-footer">
-        <span class="investment-counter" data-investment-counter>1 / {sectors.length}</span>
+        <div class="investment-dots" role="tablist" aria-label="Select investment">
+          {ownedBusinesses.map((business, index) => (
+            <button
+              class:list={['investment-dot', index === 0 && 'is-active']}
+              type="button"
+              role="tab"
+              aria-label={`View ${business.name}`}
+              aria-selected={index === 0 ? 'true' : 'false'}
+              data-investment-dot
+              data-investment-index={index}
+            ></button>
+          ))}
+        </div>
+        <span class="investment-counter" data-investment-counter>1 / {ownedBusinesses.length}</span>
         <div class="investment-arrows">
           <button class="investment-arrow investment-arrow-left" type="button" aria-label="Previous investment">
             <span aria-hidden="true">&lsaquo;</span>

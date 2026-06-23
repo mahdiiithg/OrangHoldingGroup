@@ -12,6 +12,7 @@ export const site = {
   address: 'Sydney, New South Wales, Australia',
   year: 2026,
   heroTagline: 'Building long-term value across essential and growth industries.',
+  logoImage: '/images/MhrQ.gif',
   heroImage: '/images/MhrQ.gif',
 };
 

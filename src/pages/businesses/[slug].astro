@@ -1,0 +1,61 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { getBusiness, ownedBusinesses } from '../../data/businesses';
+
+export function getStaticPaths() {
+  return ownedBusinesses.map((business) => ({ params: { slug: business.slug } }));
+}
+
+const { slug } = Astro.params;
+const business = getBusiness(slug!);
+
+if (!business) {
+  return Astro.redirect('/');
+}
+---
+
+<PageLayout title={business.name} description={business.shortDescription}>
+  <PageHero
+    eyebrow="Owned Businesses"
+    title={business.name}
+    description={business.industry}
+    imageUrl={business.imageUrl}
+    imageAlt={business.name}
+  />
+
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> / {business.name}
+      </nav>
+
+      <div class="two-col">
+        <div class="prose business-profile">
+          <img class="business-hero-image" src={business.imageUrl} alt={business.name} loading="lazy" />
+
+          <h2>Professional Overview</h2>
+          <p>{business.overview}</p>
+
+          <h2>Core Services</h2>
+          <ul>
+            {business.coreServices.map((service) => (
+              <li>{service}</li>
+            ))}
+          </ul>
+
+          <h2>Strategic Value</h2>
+          <p>{business.valueProposition}</p>
+        </div>
+
+        <aside class="card business-side-card">
+          <h3>Business Snapshot</h3>
+          <p><strong>Industry:</strong> {business.industry}</p>
+          <p><strong>Business Type:</strong> Owned business</p>
+          <p><strong>Status:</strong> Active platform</p>
+          <a class="btn btn-primary" href="/contact?sector=owned-businesses">Contact for Business Enquiries</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+</PageLayout>

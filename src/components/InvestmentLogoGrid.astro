@@ -1,15 +1,33 @@
 ---
-import { sectors } from '../data/sectors';
+import { ownedBusinesses, partnershipPipeline } from '../data/businesses';
 ---
 
 <section class="logo-grid-section" aria-label="Investment companies">
   <div class="container">
-    <div class="logo-grid">
-      {sectors.map((sector) => (
-        <a href={`/sectors/${sector.slug}`} class="logo-grid-item" title={sector.name}>
-          <span class="logo-grid-mark">{sector.logoLabel}</span>
-          <span class="logo-grid-name">{sector.name}</span>
+    <h2 class="logo-grid-heading">Owned Businesses</h2>
+    <p class="logo-grid-subheading">Each operating business is positioned for disciplined execution and long-term growth.</p>
+    <div class="logo-grid logo-grid-owned">
+      {ownedBusinesses.map((business) => (
+        <a class="logo-grid-item logo-grid-item-owned" title={business.name} href={`/businesses/${business.slug}`}>
+          <img class="logo-grid-photo" src={business.imageUrl} alt={business.name} loading="lazy" />
+          <span class="logo-grid-industry">{business.industry}</span>
+          <span class="logo-grid-mark">{business.name}</span>
+          <span class="logo-grid-name">{business.shortDescription}</span>
+          <span class="logo-grid-link">View business profile</span>
         </a>
+      ))}
+    </div>
+
+    <h3 class="logo-grid-heading" style="margin-top: 2.5rem;">Partnership Pipeline</h3>
+    <p class="logo-grid-subheading">Dedicated space for partner additions. Current status: in negotiation.</p>
+    <div class="logo-grid logo-grid-pipeline">
+      {partnershipPipeline.map((partner) => (
+        <article class="logo-grid-item" title={partner.name}>
+          <img class="logo-grid-photo" src={partner.imageUrl} alt={partner.name} loading="lazy" />
+          <span class="logo-grid-mark">{partner.name}</span>
+          <span class="logo-grid-name">{partner.industry}</span>
+          <span class="logo-grid-status">{partner.status}</span>
+        </article>
       ))}
     </div>
   </div>

@@ -44,12 +44,17 @@ if (investmentCarousel) {
   const leftBtn = investmentCarousel.querySelector('.investment-arrow-left');
   const rightBtn = investmentCarousel.querySelector('.investment-arrow-right');
   const counter = investmentCarousel.querySelector('[data-investment-counter]');
+  const dots = Array.from(investmentCarousel.querySelectorAll('[data-investment-dot]'));
   let activeIndex = 0;
 
   const showSlide = (index) => {
     activeIndex = (index + slides.length) % slides.length;
     slides.forEach((slide, i) => {
       slide.classList.toggle('is-active', i === activeIndex);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === activeIndex);
+      dot.setAttribute('aria-selected', i === activeIndex ? 'true' : 'false');
     });
     if (counter) {
       counter.textContent = `${activeIndex + 1} / ${slides.length}`;
@@ -62,6 +67,9 @@ if (investmentCarousel) {
   if (rightBtn) {
     rightBtn.addEventListener('click', () => showSlide(activeIndex + 1));
   }
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => showSlide(i));
+  });
 }
 
 /* Key corporate events timeline */

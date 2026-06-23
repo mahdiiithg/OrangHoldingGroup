@@ -16,7 +16,13 @@ if (!sector) {
 ---
 
 <PageLayout title={sector.name} description={sector.summary}>
-  <PageHero eyebrow="Our Sectors" title={sector.name} description={sector.positioningLine} />
+  <PageHero
+    eyebrow="Our Sectors"
+    title={sector.name}
+    description={sector.positioningLine}
+    imageUrl={sector.imageUrl}
+    imageAlt={sector.name}
+  />
 
   <section class="page-content">
     <div class="container">
@@ -26,6 +32,7 @@ if (!sector) {
 
       <div class="two-col">
         <div class="prose">
+          <img class="sector-detail-image" src={sector.imageUrl} alt={sector.name} loading="lazy" />
           <h2>Overview</h2>
           <p>{sector.overview}</p>
 

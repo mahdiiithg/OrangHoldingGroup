@@ -1,9 +1,28 @@
 ---
 import { site, footerNav, legalNav } from '../data/site';
+
+const socialLinks = [
+  { name: 'LinkedIn', url: '#', icon: 'linkedin' },
+  { name: 'Facebook', url: '#', icon: 'facebook' },
+  { name: 'Instagram', url: '#', icon: 'instagram' },
+  { name: 'YouTube', url: '#', icon: 'youtube' },
+];
 ---
 
 <footer class="site-footer">
+  <div class="footer-hero" style="--footer-bg: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80')">
+    <div class="footer-hero-overlay"></div>
+    <div class="container footer-hero-content">
+      <h2>Let's Get In Touch</h2>
+      <p>For inquiries about our businesses, investments, or partnerships, contact the right team below.</p>
+      <a href="/contact" class="btn btn-primary">Send an Enquiry</a>
+    </div>
+  </div>
+
   <div class="container footer-columns">
+    <div class="footer-logo">
+      <img src={site.logoImage} alt={site.name} loading="lazy" />
+    </div>
     <div class="footer-col">
       <h3>About Us</h3>
       <a href="/about">About Us</a>
@@ -12,11 +31,11 @@ import { site, footerNav, legalNav } from '../data/site';
       <a href="/corporate-events">Corporate Events</a>
     </div>
     <div class="footer-col">
-      <h3>Our Sectors</h3>
+      <h3>Operating Fields</h3>
       {footerNav.filter((l) => l.href.startsWith('/sectors') || l.label === 'Our Sectors').map((item) => (
         <a href={item.href}>{item.label}</a>
       ))}
-      <a href="/sectors">View All Sectors</a>
+      <a href="/sectors">View All Fields</a>
     </div>
     <div class="footer-col">
       <h3>Investor Relations</h3>
@@ -25,12 +44,22 @@ import { site, footerNav, legalNav } from '../data/site';
       <a href="/sustainability">Sustainability</a>
     </div>
     <div class="footer-col">
-      <h3>News &amp; Contact</h3>
+      <h3>Resources</h3>
       <a href="/insights">News &amp; Insights</a>
       <a href="/contact">Contact</a>
       {legalNav.slice(0, 2).map((item) => (
         <a href={item.href}>{item.label}</a>
       ))}
+    </div>
+    <div class="footer-col footer-col-social">
+      <h3>Follow Us</h3>
+      <div class="footer-social-links">
+        {socialLinks.map((link) => (
+          <a href={link.url} title={link.name} class="footer-social-link" aria-label={link.name}>
+            <span class="social-icon-label">{link.name}</span>
+          </a>
+        ))}
+      </div>
     </div>
   </div>
 

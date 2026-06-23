@@ -14,131 +14,88 @@ export type Sector = {
 
 export const sectors: Sector[] = [
   {
-    slug: 'ict-solutions',
-    name: 'ICT Solutions',
+    slug: 'property-operations',
+    name: 'Property Operations',
     summary:
-      'AI, cybersecurity, managed services, and digital transformation for a connected world.',
-    positioningLine: 'Technology infrastructure for resilient, connected operations.',
+      'Operational property and facility services focused on execution quality, tenant support, and asset reliability.',
+    positioningLine: 'Structured property operations for long-term asset performance.',
     overview:
-      'Our ICT platform delivers enterprise-grade digital capability across cybersecurity, cloud, managed services, and applied AI. We support organizations that require secure, scalable technology foundations.',
+      'This operating field is led through our CPMS business platform, delivering day-to-day property and facility execution across commercial and mixed-use environments with clear service standards.',
     coreAreas: [
-      'Cybersecurity and risk management',
-      'Managed IT and cloud services',
-      'Digital transformation programs',
-      'Applied AI and automation',
+      'Property operations and facility coordination',
+      'Preventive and corrective maintenance oversight',
+      'Compliance and contractor management',
+      'Tenant service delivery and reporting',
     ],
     whyItMatters:
-      'Digital capability is now a core operating requirement. Our ICT division provides the technical depth and governance discipline needed for long-horizon enterprise performance.',
-    ctaLabel: 'Enquire with ICT Solutions',
-    imageUrl:
-      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80',
-    logoLabel: 'ICT',
-  },
-  {
-    slug: 'property-management',
-    name: 'Property Management',
-    summary:
-      'Operational property services designed to support asset performance, consistency, and trust.',
-    positioningLine: 'Operational excellence across essential property assets.',
-    overview:
-      'We provide property management services focused on operational consistency, tenant experience, and asset performance across residential and commercial portfolios.',
-    coreAreas: [
-      'Portfolio operations and compliance',
-      'Tenant and stakeholder management',
-      'Maintenance and asset care',
-      'Performance reporting and oversight',
-    ],
-    whyItMatters:
-      'Well-managed property assets underpin stable cash flows and stakeholder confidence. Our approach emphasizes accountability, transparency, and long-term asset stewardship.',
-    ctaLabel: 'Enquire with Property Management',
+      'Reliable operations and maintenance standards protect asset quality, support occupancy outcomes, and build long-term stakeholder confidence.',
+    ctaLabel: 'Enquire with Property Operations',
     imageUrl:
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80',
-    logoLabel: 'Property',
+    logoLabel: 'CPMS',
   },
   {
-    slug: 'health-wellness-beauty',
-    name: 'Health, Wellness & Beauty',
+    slug: 'surety-risk-support',
+    name: 'Surety & Risk Support',
     summary:
-      'Services and product innovation across healthcare, wellness, personal care, and beauty.',
-    positioningLine: 'Human-centered services across health and personal care.',
+      'Surety and risk support services designed to improve execution confidence and governance readiness.',
+    positioningLine: 'Risk-backed support for disciplined project and contract delivery.',
     overview:
-      'This platform spans clinical-adjacent services, wellness programs, and consumer personal care innovation with a focus on quality, safety, and sustainable growth.',
+      'Through Orange Surety, this field supports counterparties that require risk transparency, practical surety frameworks, and structured documentation aligned with delivery standards.',
     coreAreas: [
-      'Wellness and preventive care services',
-      'Personal care product development',
-      'Retail and distribution partnerships',
-      'Quality and compliance frameworks',
+      'Project and contract risk support',
+      'Surety framework structuring',
+      'Risk documentation and advisory',
+      'Execution assurance reporting',
     ],
     whyItMatters:
-      'Health and wellness demand continues to grow across demographics. We invest in platforms that combine service quality with scalable operating models.',
-    ctaLabel: 'Enquire with Health Platform',
+      'Complex projects need confidence layers beyond basic execution. This operating field helps strengthen delivery certainty and stakeholder trust.',
+    ctaLabel: 'Enquire with Surety & Risk Support',
     imageUrl:
-      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80',
-    logoLabel: 'Health',
+      'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80',
+    logoLabel: 'Surety',
   },
   {
-    slug: 'agrifood-nutrition',
-    name: 'AgriFood & Nutrition',
+    slug: 'coastal-operations',
+    name: 'Coastal Operations',
     summary:
-      'Agriculture, food science, nutrition, and consulting focused on resilience, innovation, and supply.',
-    positioningLine: 'Food systems resilience through science and advisory capability.',
+      'Coastal service operations built for reliable execution in shoreline and maritime-adjacent environments.',
+    positioningLine: 'Practical coastal operations with safety and service discipline.',
     overview:
-      'Our AgriFood platform covers production, nutrition science, supply chain advisory, and food innovation with emphasis on sustainability and regional food security.',
+      'This field is represented by Coast Plannet and focuses on operational delivery for coastal assets and service points where local execution capability is critical.',
     coreAreas: [
-      'Agricultural production and supply',
-      'Nutrition science and product development',
-      'Food systems consulting',
-      'Sustainability and traceability programs',
+      'Coastal site operational support',
+      'Marine-adjacent service coordination',
+      'Safety and environmental operating procedures',
+      'Local planning and operational response',
     ],
     whyItMatters:
-      'Food security and nutrition innovation are structural growth themes. We build capability where science, operations, and market access intersect.',
-    ctaLabel: 'Enquire with AgriFood & Nutrition',
+      'Coastal environments require dependable, context-aware operating execution. This field supports that requirement with structured delivery capability.',
+    ctaLabel: 'Enquire with Coastal Operations',
     imageUrl:
-      'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=900&q=80',
-    logoLabel: 'AgriFood',
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80',
+    logoLabel: 'Coast',
   },
   {
-    slug: 'training-development',
-    name: 'Training & Development',
+    slug: 'automotive-cleaning-car-services',
+    name: 'Automotive Cleaning & Car Services',
     summary:
-      'Professional capability, technical learning, executive development, and workforce readiness.',
-    positioningLine: 'Capability building for workforce and leadership readiness.',
+      'Car washing and detailing services designed for speed, consistency, and customer convenience.',
+    positioningLine: 'Operational car service model for repeat-use customers and fleets.',
     overview:
-      'We deliver structured learning programs across technical skills, leadership development, and workforce transition to strengthen organizational capability.',
+      'This field is led by Tiptop Wash, a focused operating concept for modern car washing and detailing services with high service consistency and practical customer access.',
     coreAreas: [
-      'Technical and professional upskilling',
-      'Executive and leadership programs',
-      'Workforce transition and readiness',
-      'Corporate learning partnerships',
+      'Express exterior wash services',
+      'Interior cleaning and detailing packages',
+      'Fleet and recurring wash programs',
+      'Membership and digital booking model',
     ],
     whyItMatters:
-      'Human capability is a compounding asset. Our training platform supports clients and portfolio companies in building durable talent pipelines.',
-    ctaLabel: 'Enquire with Training & Development',
+      'Vehicle owners and fleets need trusted, time-efficient car service options. This field responds with quality-focused, scalable operating execution.',
+    ctaLabel: 'Enquire with Automotive Services',
     imageUrl:
-      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
-    logoLabel: 'Training',
-  },
-  {
-    slug: 'emerging-ventures',
-    name: 'Emerging Ventures',
-    summary:
-      'Future-facing initiatives in media, creativity, innovation, and new business opportunities.',
-    positioningLine: 'Selective venture development for next-generation growth.',
-    overview:
-      'Emerging Ventures incubates new business lines and strategic partnerships in media, creativity, and innovation with disciplined stage-gate evaluation.',
-    coreAreas: [
-      'Media and content ventures',
-      'Creative industry partnerships',
-      'Innovation scouting and incubation',
-      'Strategic venture structuring',
-    ],
-    whyItMatters:
-      'Long-term holding companies must balance core stability with selective innovation. This platform provides structured exploration without diluting operating focus.',
-    ctaLabel: 'Strategic Venture Enquiry',
-    imageUrl:
-      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=80',
-    logoLabel: 'Ventures',
-    future: true,
+      '/images/tiptop-wash.jpg',
+    logoLabel: 'Tiptop',
   },
 ];
 

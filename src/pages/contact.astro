@@ -5,7 +5,6 @@ import { site } from '../data/site';
 import { sectors } from '../data/sectors';
 
 const sectorParam = Astro.url.searchParams.get('sector');
-const sectorOptions = sectors.map((s) => s.name);
 ---
 
 <PageLayout
@@ -14,38 +13,57 @@ const sectorOptions = sectors.map((s) => s.name);
 >
   <PageHero
     eyebrow="Contact"
-    title="Route Your Enquiry to the Right Division"
-    description="Use the form to direct your enquiry to the relevant business function for faster, sector-specific response."
+    title="Contact Us"
+    description="Send your enquiry to the right team for faster response across corporate, business, and partnership matters."
   />
 
   <section class="page-content">
-    <div class="container two-col">
-      <div class="prose">
-        <h2>Contact Details</h2>
-        <p>
-          <strong>General enquiries:</strong><br />
-          <a href={`mailto:${site.email}`}>{site.email}</a><br />
-          {site.phone}
-        </p>
-        <p>
-          <strong>Investor relations:</strong><br />
-          <a href={`mailto:${site.investorEmail}`}>{site.investorEmail}</a>
-        </p>
-        <p>
-          <strong>Media:</strong><br />
-          <a href={`mailto:${site.mediaEmail}`}>{site.mediaEmail}</a>
-        </p>
-        <p><strong>Address:</strong><br />{site.address}</p>
+    <div class="container contact-page-grid">
+      <div class="contact-directory">
+        <article class="card contact-directory-card">
+          <h2>General Enquiries</h2>
+          <p>For corporate information and portfolio-level questions.</p>
+          <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+          <p>{site.phone}</p>
+        </article>
+
+        <article class="card contact-directory-card">
+          <h2>Investor Relations</h2>
+          <p>For investment updates, disclosures, and strategic finance enquiries.</p>
+          <p><a href={`mailto:${site.investorEmail}`}>{site.investorEmail}</a></p>
+        </article>
+
+        <article class="card contact-directory-card">
+          <h2>Media & Corporate Communications</h2>
+          <p>For interviews, announcements, and media coordination.</p>
+          <p><a href={`mailto:${site.mediaEmail}`}>{site.mediaEmail}</a></p>
+        </article>
+
+        <article class="card contact-directory-card">
+          <h2>Office</h2>
+          <p>{site.address}</p>
+        </article>
       </div>
 
-      <form class="card contact-form" action="#" method="post">
+      <form class="card contact-form contact-form-panel" action="#" method="post">
+        <h2>Send Us a Message</h2>
+        <p class="form-note">Please complete the form and our team will route your enquiry.</p>
+
         <label>
           Full Name
           <input type="text" name="fullName" required />
         </label>
         <label>
+          Company
+          <input type="text" name="company" />
+        </label>
+        <label>
           Work Email
           <input type="email" name="email" required />
+        </label>
+        <label>
+          Contact Number
+          <input type="tel" name="phone" />
         </label>
         <label>
           Enquiry Type
@@ -55,18 +73,16 @@ const sectorOptions = sectors.map((s) => s.name);
             {sectors.map((s) => (
               <option value={s.slug} selected={sectorParam === s.slug || undefined}>{s.name}</option>
             ))}
-            <option value="partnerships">Partnerships / Investment</option>
+            <option value="owned-businesses">Owned Businesses</option>
+            <option value="partnerships">Partnerships (In Negotiation)</option>
             <option value="media">Media / Other</option>
           </select>
         </label>
         <label>
           Message
-          <textarea name="message" rows="4" required></textarea>
+          <textarea name="message" rows="5" required></textarea>
         </label>
         <button class="btn btn-primary" type="submit">Submit Enquiry</button>
-        <p class="form-note">
-          Form routing and anti-spam integration are planned for the next backend phase.
-        </p>
       </form>
     </div>
   </section>
