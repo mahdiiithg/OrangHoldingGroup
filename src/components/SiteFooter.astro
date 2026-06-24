@@ -2,80 +2,98 @@
 import { site, footerNav, legalNav } from '../data/site';
 
 const socialLinks = [
-  { name: 'LinkedIn', url: '#', icon: 'linkedin' },
-  { name: 'Facebook', url: '#', icon: 'facebook' },
-  { name: 'Instagram', url: '#', icon: 'instagram' },
-  { name: 'YouTube', url: '#', icon: 'youtube' },
+  { name: 'LinkedIn', url: '#', short: 'in' },
+  { name: 'Facebook', url: '#', short: 'f' },
+  { name: 'Instagram', url: '#', short: 'ig' },
+  { name: 'YouTube', url: '#', short: 'yt' },
 ];
 ---
 
 <footer class="site-footer">
-  <div class="footer-hero" style="--footer-bg: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80')">
+  <div class="footer-hero" style="--footer-bg: url('https://images.unsplash.com/photo-1431576901776-e539bd916ba2?auto=format&fit=crop&w=1800&q=80')">
     <div class="footer-hero-overlay"></div>
+    <div class="footer-hero-pattern" aria-hidden="true"></div>
     <div class="container footer-hero-content">
+      <p class="footer-eyebrow">Orang Holding Group</p>
       <h2>Let's Get In Touch</h2>
-      <p>For inquiries about our businesses, investments, or partnerships, contact the right team below.</p>
-      <a href="/contact" class="btn btn-primary">Send an Enquiry</a>
+      <p>For inquiries about our businesses, partnerships, and investor concerns, connect with the right team directly.</p>
+      <div class="footer-hero-actions">
+        <a href="/contact" class="btn btn-primary">Send an Enquiry</a>
+        <a href="/investor-relations" class="btn btn-ghost footer-hero-secondary">Investor Relations</a>
+      </div>
     </div>
   </div>
 
-  <div class="container footer-columns">
-    <div class="footer-logo">
-      <img src={site.logoImage} alt={site.name} loading="lazy" />
-    </div>
-    <div class="footer-col">
-      <h3>About Us</h3>
-      <a href="/about">About Us</a>
-      <a href="/leadership-governance">Leadership &amp; Governance</a>
-      <a href="/markets">Markets</a>
-      <a href="/corporate-events">Corporate Events</a>
-    </div>
-    <div class="footer-col">
-      <h3>Operating Fields</h3>
-      {footerNav.filter((l) => l.href.startsWith('/sectors') || l.label === 'Our Sectors').map((item) => (
-        <a href={item.href}>{item.label}</a>
-      ))}
-      <a href="/sectors">View All Fields</a>
-    </div>
-    <div class="footer-col">
-      <h3>Investor Relations</h3>
-      <a href="/investor-relations">Investor Relations</a>
-      <a href="/financials">Financials</a>
-      <a href="/sustainability">Sustainability</a>
-    </div>
-    <div class="footer-col">
-      <h3>Resources</h3>
-      <a href="/insights">News &amp; Insights</a>
-      <a href="/contact">Contact</a>
-      {legalNav.slice(0, 2).map((item) => (
-        <a href={item.href}>{item.label}</a>
-      ))}
-    </div>
-    <div class="footer-col footer-col-social">
-      <h3>Follow Us</h3>
-      <div class="footer-social-links">
-        {socialLinks.map((link) => (
-          <a href={link.url} title={link.name} class="footer-social-link" aria-label={link.name}>
-            <span class="social-icon-label">{link.name}</span>
-          </a>
+  <div class="footer-shell">
+    <div class="footer-shell-accent" aria-hidden="true"></div>
+
+    <div class="container footer-columns">
+      <div class="footer-brand-panel">
+        <div class="footer-logo">
+          <img src={site.logoImage} alt={site.name} loading="lazy" />
+        </div>
+        <p class="footer-brand-name">{site.name}</p>
+        <p class="footer-brand-text">Building focused operating businesses across property operations, surety support, coastal services, and automotive care.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>About</h3>
+        <a href="/about">About Us</a>
+        <a href="/leadership-governance">Leadership &amp; Governance</a>
+        <a href="/markets">Markets</a>
+        <a href="/corporate-events">Corporate Events</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Operating Fields</h3>
+        {footerNav.filter((l) => l.href.startsWith('/sectors') || l.label === 'Our Sectors').map((item) => (
+          <a href={item.href}>{item.label}</a>
         ))}
+        <a href="/sectors">View All Fields</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Investors</h3>
+        <a href="/investor-relations">Investor Relations</a>
+        <a href="/financials">Financials</a>
+        <a href="/sustainability">Sustainability</a>
+        <a href="/insights">News &amp; Insights</a>
+      </div>
+
+      <div class="footer-col footer-col-social">
+        <h3>Follow Us</h3>
+        <div class="footer-social-links">
+          {socialLinks.map((link) => (
+            <a href={link.url} title={link.name} class="footer-social-link" aria-label={link.name}>
+              <span class="social-icon-dot" aria-hidden="true">{link.short}</span>
+              <span class="social-icon-label">{link.name}</span>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container footer-contact-block">
-    <h2 class="footer-contact-title">CONTACT US</h2>
-    <div class="footer-contact-grid">
-      <div>
-        <p><strong>General:</strong> {site.phone}</p>
-        <p><strong>Investor and Media Relations:</strong> {site.phone}</p>
-        <p><strong>Corporate Development:</strong> {site.phone}</p>
-        <p><strong>Company Secretary:</strong> {site.phone}</p>
-      </div>
-      <div>
-        <p><strong>Address</strong></p>
-        <p>{site.address}</p>
-        <p><a href={`mailto:${site.email}`}>Email Alert Sign Up / Unsubscribe</a></p>
+    <div class="container footer-contact-block">
+      <h2 class="footer-contact-title">Contact Directory</h2>
+      <div class="footer-contact-grid">
+        <article class="footer-contact-card">
+          <h3>General &amp; Corporate</h3>
+          <p><strong>General Enquiries:</strong> {site.phone}</p>
+          <p><strong>Corporate Development:</strong> {site.phone}</p>
+          <p><strong>Company Secretary:</strong> {site.phone}</p>
+        </article>
+        <article class="footer-contact-card">
+          <h3>Investor &amp; Media</h3>
+          <p><strong>Investor Relations:</strong> {site.phone}</p>
+          <p><strong>Media Relations:</strong> {site.phone}</p>
+          <p><a href="/investor-relations">View investor resources</a></p>
+        </article>
+        <article class="footer-contact-card">
+          <h3>Head Office</h3>
+          <p>{site.address}</p>
+          <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+          <p><a href="/contact">Contact page and enquiry form</a></p>
+        </article>
       </div>
     </div>
   </div>
@@ -88,9 +106,7 @@ const socialLinks = [
         ))}
         <a href="/contact">Contact Us</a>
       </nav>
-      <p class="copyright">
-        Copyright &copy; {site.year} | {site.name} | All rights reserved
-      </p>
+      <p class="copyright">Copyright &copy; {site.year} | {site.name} | All rights reserved</p>
     </div>
   </div>
 </footer>
