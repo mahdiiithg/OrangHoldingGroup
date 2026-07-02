@@ -8,6 +8,7 @@ export type BusinessEntry = {
   valueProposition: string;
   imageUrl: string;
   status?: string;
+  website?: string;
 };
 
 export const ownedBusinesses: BusinessEntry[] = [
@@ -67,6 +68,7 @@ export const ownedBusinesses: BusinessEntry[] = [
       'Coast Plannet provides dependable coastal operations capability where execution quality and environmental awareness must work together.',
     imageUrl:
       'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80',
+    website: 'https://cpms-front.vercel.app/',
   },
   {
     slug: 'tiptop-wash',
@@ -86,6 +88,7 @@ export const ownedBusinesses: BusinessEntry[] = [
       'Tiptop Wash targets everyday vehicle owners and fleet operators with reliable, time-efficient, and quality-focused car services.',
     imageUrl:
       '/images/tiptop-wash.jpg',
+    website: 'https://tip-top-wash.vercel.app/',
   },
 ];
 

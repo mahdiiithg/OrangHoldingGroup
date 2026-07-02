@@ -855,6 +855,13 @@ p {
   margin-bottom: 0.8rem;
 }
 
+.business-side-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
 /* ─── News magazine ─── */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
